@@ -1,0 +1,106 @@
+:root{--bg:#f4f7fb;--bgA:#f7f9fc;--bgB:#e8eef8;--surface:#fff;--ink:#14213d;--muted:#55627a;--line:#d3dce8;--accent:#1d4f91;--accent-ink:#fff;--pop:#f2b01e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1426;--bgA:#0a1426;--bgB:#0d1b33;--surface:#14213a;--ink:#e8eef8;--muted:#9fb0c8;--line:#2a3c5a;--accent:#7db0ff;--accent-ink:#0b1526;--pop:#f2b01e}}
+:root[data-theme="dark"]{--bg:#0b1426;--bgA:#0a1426;--bgB:#0d1b33;--surface:#14213a;--ink:#e8eef8;--muted:#9fb0c8;--line:#2a3c5a;--accent:#7db0ff;--accent-ink:#0b1526;--pop:#f2b01e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Inter,system-ui,sans-serif;background:radial-gradient(circle at 10% 6%,rgba(242,176,30,.10),transparent 38%),radial-gradient(circle at 92% 28%,rgba(29,79,145,.16),transparent 42%),linear-gradient(160deg,var(--bgA),var(--bgB)) fixed}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.1;margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--pop);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;gap:22px;align-items:center;height:56px;overflow-x:auto}
+nav b{font-family:"Playfair Display",Georgia,sans-serif;font-size:19px;margin-right:auto;white-space:nowrap}
+nav a{color:var(--ink);text-decoration:none;font-weight:500;font-size:15px;white-space:nowrap}
+nav a:hover{color:var(--accent)}
+section{padding:72px 0 8px}
+h2{font-size:clamp(28px,5vw,40px);margin-bottom:26px}
+/* hero: spreadsheet */
+.hero{padding-top:56px}
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.fbar{display:flex;border-bottom:1px solid var(--line);font:500 14px/1 ui-monospace,Menlo,monospace}
+.fbar .ref{padding:12px 16px;border-right:1px solid var(--line);color:var(--accent);min-width:64px;text-align:center}
+.fbar .fx{padding:12px 16px;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cell{padding:34px 26px 30px;border-left:4px solid var(--accent);margin:26px;background:linear-gradient(var(--surface),var(--surface))}
+.cell h1{font-size:clamp(42px,9vw,84px);font-weight:700;letter-spacing:-.01em}
+.cell p.role{font:600 clamp(19px,3vw,26px)/1.3 "Playfair Display",Georgia,sans-serif;margin:14px 0 14px}
+.cell p.lead{max-width:60ch;color:var(--muted);margin:0 0 24px}
+.cell .caret{display:inline-block;width:3px;height:.9em;background:var(--pop);margin-left:6px;vertical-align:-.1em;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 20px;border-radius:4px;font-weight:500;text-decoration:none;border:2px solid var(--accent)}
+.btn.fill{background:var(--accent);color:var(--accent-ink)}
+.btn.line{color:var(--accent)}
+.btn:hover{transform:translateY(-1px)}
+.tabs{display:flex;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.tabs span{padding:9px 16px;border-right:1px solid var(--line)}
+.tabs span:first-child{background:var(--bg);color:var(--ink);font-weight:500}
+/* about */
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:34px}
+.about p{margin:0 0 16px;max-width:62ch}
+.facts{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px 22px;align-self:start}
+.facts dt{font-size:13px;color:var(--muted)}
+.facts dd{margin:0 0 14px;font-weight:500}
+.facts dd:last-child{margin:0}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.skill{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:6px;padding:20px}
+.skill:nth-child(2){border-top-color:var(--pop)}
+.skill h3{font-size:22px;margin-bottom:8px}
+.skill p{margin:0;color:var(--muted);font-size:15px}
+.skill ul{margin:10px 0 14px;padding-left:18px;color:var(--muted);font-size:15px}
+.skill a.more{font-weight:500}
+.plink{color:inherit;text-decoration:none;border-bottom:2px solid var(--accent)}
+.plink:hover{color:var(--accent)}
+.grp{grid-column:1/-1;font-size:22px;margin-top:6px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+/* projects */
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:6px;margin-bottom:16px}
+.proj summary{cursor:pointer;list-style:none;padding:20px 22px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.proj summary::-webkit-details-marker{display:none}
+.proj summary h3{font-size:22px}
+.proj summary small{display:block;color:var(--muted);font:400 14px Inter,sans-serif;margin-top:4px}
+.proj summary::after{content:"+";font:600 26px "Playfair Display",Georgia,sans-serif;color:var(--accent)}
+.proj[open] summary::after{content:"\2212"}
+.proj .body{padding:0 22px 22px;border-top:1px solid var(--line)}
+.proj .body p{margin:16px 0 12px;max-width:68ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.chips li{border:1px solid var(--line);background:var(--bg);border-radius:20px;padding:3px 12px;font-size:14px}
+/* contact */
+.contact{background:var(--accent);color:var(--accent-ink);border-radius:6px;padding:34px 28px;margin-bottom:56px}
+.contact h2{margin-bottom:10px}
+.contact p{margin:0 0 20px;max-width:56ch}
+.contact .btn{background:var(--accent-ink);color:var(--accent);border-color:var(--accent-ink)}
+.contact .btn.line{background:transparent;color:var(--accent-ink)}
+footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:14px}
+@media (max-width:720px){.about{grid-template-columns:1fr}section{padding-top:56px}}
+.contact{background:linear-gradient(135deg,#14213d,#1d4f91);color:#fff}
+.contact .btn{background:#fff;color:#14213d;border-color:#fff}
+.contact .btn.line{background:transparent;color:#fff}
+.cell{background:var(--surface)}
+h2{letter-spacing:-.005em}
+.hero{padding-top:48px}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:44px;align-items:center;padding:24px 0}
+.hero h1{font-size:clamp(46px,8vw,88px);font-weight:700;letter-spacing:-.01em}
+.role2{font:italic 600 clamp(22px,3.5vw,32px)/1.3 "Playfair Display",Georgia,serif;color:var(--accent);margin:14px 0 18px}
+.lead2{max-width:52ch;font-size:19px;color:var(--muted);margin:0 0 28px}
+.idcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:32px 26px;text-align:center;box-shadow:0 18px 40px rgba(20,33,61,.12)}
+.mono{width:96px;height:96px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:linear-gradient(135deg,#14213d,#1d4f91);color:#fff;font:700 36px "Playfair Display",Georgia,serif}
+.idname{font:700 24px "Playfair Display",Georgia,serif;margin:0}
+.idsub{margin:4px 0 18px;color:var(--muted);font-size:15px}
+.idcard .chips{justify-content:center;margin-bottom:20px}
+.idlink{font-weight:500;font-size:15px;word-break:break-all}
+.pull{font:italic 600 clamp(24px,4vw,34px)/1.25 "Playfair Display",Georgia,serif;color:var(--accent);margin:-10px 0 28px;max-width:30ch}
+.about2{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start}
+.about2 p{margin:0 0 16px;max-width:60ch}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:16px}
+.tile span{display:block;font-size:13px;color:var(--muted);margin-bottom:4px}
+.tile b{font-weight:600;line-height:1.35;display:block}
+@media (max-width:720px){.hero-grid,.about2{grid-template-columns:1fr}.hero{padding-top:28px}}
+.plinks{display:flex;flex-wrap:wrap;gap:10px}
+.plinks .btn{padding:9px 16px;font-size:15px}
+
+/* Highlight the menu link of the section you are viewing (set by script.js) */
+nav a[aria-current="true"]{color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent)}
